@@ -1,0 +1,96 @@
+:root {
+    --grid-size: 0;
+    --cell-size: 60px;
+    --gap-size: 10px;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-wrap: wrap;
+    background-image: url("https://cdn.dribbble.com/users/297873/screenshots/6532744/tic-tac-toe_in_webassembly_for_go_web_4x.png?resize=320x240&vertical=center");
+    background-size: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.board {
+    display: grid;
+    margin: 10px;
+    box-shadow:5px 5px 5px 5px #91cdff;
+    grid-template-columns: repeat(var(--grid-size), var(--cell-size));
+    grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+    gap: var(--gap-size);
+}
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(203, 253, 249);
+    font-size: 2em;
+    border: 2px solid #184c69;
+    box-shadow: 5px 5px 5px 5px rgb(15, 41, 97);
+}
+
+.cell:hover{
+    background-color: #dc26e22a;
+}
+.button:hover
+{
+    background-color: rgba(91, 145, 207, 0.842);
+}
+.board + button{
+   margin-top: 30px;
+    text-shadow: 1.5em;
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    border: 2px solid rgb(219, 68, 219);
+    background-color: #91cdff;
+}
+.circle{
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+.circle::before
+{
+    content: "";
+    width: 30px;
+    height: 30px;
+    border:8px solid #149ad8;
+    border-radius: 50%;
+    position: absolute;
+    top: center; 
+    left: center;
+}
+.cross {
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+.cross:before, .cross:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 10px;
+    background-color: #e9702a; 
+    top: 25px; 
+    left: 5px; 
+}
+.cross:before {
+    transform: rotate(45deg);
+}
+.cross:after {
+    transform: rotate(-45deg);
+}
